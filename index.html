@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Situação do aluno</title>
+</head>
+
+<body>
+    <main>
+        <section id="home">
+            <h1>Situação do aluno</h1>
+            <button onclick="Events.open()">Entrar com as notas</button>
+        </section>
+
+        <section class="result-container hide">
+            <div class="result"></div>
+            <button class="toHome" onclick="Events.showHome()">Voltar</button>
+        </section>
+
+        <section>
+            <div class="modal-overlay">
+                <div class="modal">
+                    <div class="close-button">
+                        <img onclick="Events.close(), Events.showHome()" src="assets/icons8-macos-close-32.png"/>
+                    </div>
+                    
+                    <form action="" id="form" onsubmit="Form.submit(event)">
+                        <h2>Dados do aluno</h2>
+                        <div class="input-group">
+                            <label for="name" class="sr-only">Nome completo do aluno</label>
+                            <input type="text" id="name" placeholder="Nome completo do aluno" autocomplete="off" required pattern="[a-zA-Z]+.* .*" title="Informe seu nome completo"> 
+
+                            <label for="firstScore" class="sr-only">Nota 1</label>
+                            <input type="number" name="firstScore" id="firstScore" placeholder="Nota da primeira avaliação do aluno" step=0.01 autocomplete="off" required min="1" max="10">
+                            
+                            <label for="secondScore" class="sr-only">Nota 2</label>
+                            <input type="number" id="secondScore"placeholder="Nota da segunda avalição do aluno" autocomplete="off" step=0.01 required min="1" max="10" >
+
+                            <small>Utilize , ( vírgula ) para números decimais.</small>
+
+                            <button class="effect">Validar</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer><a rel="external" target="_blank" href="https://icons8.com/icon/AqDEb8mCIrk9/macos-close">MacOS Close icon by Icons8</a></footer>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
