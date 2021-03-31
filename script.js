@@ -2,10 +2,12 @@ const Events = {
     modalOverlay: document.querySelector('.modal-overlay'),
     home: document.querySelector('#home'),
     result: document.querySelector('.result-container'),
+    footer: document.querySelector('footer'),
 
     open() {
         this.modalOverlay.classList.add("active");
         this.home.classList.add('hide');
+        this.footer.classList.add('hide')
         Form.clearFields();
     },
 
@@ -17,6 +19,7 @@ const Events = {
     showHome() {
         this.home.classList.remove('hide');
         this.hideResult();
+        this.footer.classList.remove('hide')
     },
 
     hideResult() {
@@ -30,9 +33,9 @@ const Events = {
 
         const { name, media, classification } = Form.result();
 
-        document.querySelector(".result-container .result").innerHTML = `
+        document.querySelector(".result-container .result").innerHTML = `<p>
         Analisando a média de ${media} o aluno(a) ${name} está ${classification}
-        `;
+        </p>`;
 
     },
 }

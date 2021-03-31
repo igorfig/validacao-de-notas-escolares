@@ -17,13 +17,20 @@ body {
 }
 
 
-/* tela principal */
+.hide{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 999;
+}
+
+/* tela principal */    
 
 main {
-    width: 100vw;
-    height: 100vh;
-    display: table-cell;
-    vertical-align:middle;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 #home {
@@ -31,14 +38,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-
-#home.hide{
-    opacity: 0;
-    visibility: hidden;
-    position: fixed;
-    z-index: 999;
 }
 
 #home h1 { 
@@ -55,13 +54,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.result-container.hide{
-    opacity: 0;
-    visibility: hidden;
-    position: fixed;
-    z-index: 999;
 }
 
 .result-container .result{
@@ -96,20 +88,21 @@ button {
     font-size: 16px;
     font-weight: 700;
     opacity: .8;
-
 }
 
 /* modal button effect ===============================*/
-button.effect {
-    width: 80%;
-    transition: .4s;
-}
 
+@media(min-width: 800px) {
+    button.effect {
+        width: 80%;
+        transition: .4s;
+    }
 
-button.effect:hover {
-    width: 100%;
-    transition: .6s;
-    opacity: 1;
+    button.effect:hover {
+        width: 100%;
+        transition: .4s;
+        opacity: 1;
+    }
 }
 
 /* ==============*/
@@ -224,22 +217,36 @@ input[type=number]::-webkit-outer-spin-button {
 small {
     color: #363f5f;
     opacity: .6;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* icons8 ==============================*/
 
 footer{
-    margin-bottom: 8px;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
+    position:absolute;
+    bottom:0;
+    width:100%;
     text-align: center;
+    opacity: 0.6;
     font-size: 11px;
+    margin-bottom: 8px;
     
 }
 
 a {
     text-decoration: none;
     color:white
+}
+
+/* mobile device ==============================*/
+
+@media(max-width: 799px) {
+    .result p {
+        font-size: 76.5%
+    }
+
+    form .input-group button {
+        width: 100%;
+    }
 }
